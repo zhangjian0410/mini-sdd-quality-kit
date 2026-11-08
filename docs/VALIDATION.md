@@ -1,7 +1,7 @@
 # Validation status and limits
 
-This is a public summary of retained private development evidence and the new
-standalone source check. Raw host captures, task records and private coordinator
+This is a public summary of retained development checks and host observations,
+including G2 repair acceptance and G3 Desktop Smokes. Raw host captures, task records and private coordinator
 logs are excluded. The product contract describes intended behavior; it does not
 turn an unobserved capability into PASS.
 
@@ -25,8 +25,9 @@ review remains an execution property to establish for each Full Task candidate.
 The raw observations belong to their recorded development candidates. Later
 small guard/header repairs were covered by deterministic checks and independent
 development review; the complete live suite was not repeated on the final source
-revision or this relocated public snapshot. Core/test byte identity with the
-final development source preserves provenance, not a new live PASS.
+revision or this relocated public snapshot. The original packaging byte-identity
+check preserved provenance, not a new live PASS; G2 subsequently changed core/test
+files as recorded below.
 
 Native Skill catalog installation, native subagent policy, Windows and Linux
 remain unverified. Review Only itself runs no tests; existing evidence never
@@ -34,12 +35,59 @@ silently becomes verification of a different candidate.
 
 ## Qoder Desktop
 
-Only application metadata (version 0.5.6) was obtained. Normal UI access was
-refused. Actual Desktop file loading, known-defect review, read-only effects,
-fresh recovery and Codex-to-Desktop handoff are **NOT_RUN**, with overall runtime
-readiness **UNKNOWN**. The [Desktop procedure](hosts/qoder-desktop.md) describes
-minimum future observations, not completed tests. Qoder CLI and Qoder IDE are
-outside required V0 scope; old NOT_RUN evidence is preserved privately.
+Earlier development obtained version 0.5.6 metadata but normal UI access was
+refused. On 2026-11-08, G3 obtained normal Computer Use access and ran both minimum
+Smokes on `a9c0f986df93511c10d97ab2195670f4708ab905`, using explicit canonical
+Skill files outside native discovery folders. The observed model UI label was
+DeepSeek-V4.1-Flash-1017 (high); the current app version was not independently
+rechecked. The overall G3 result is **not a clean PASS**.
+
+| Observation | Result and boundary |
+|---|---|
+| Manual file loading and known-defect detection | Observed: `len(prices - 1)` at pricing.py:4 found; canonical finding fields, N/A Spec, NOT_RUN verification and UNVERIFIED independence present |
+| Review Only report precision | **FAIL**: CQ-2 discussed a hypothetical `len(prices) - 1` repair that was never made. It is a speculative false positive for the current candidate, not a second current defect |
+| Review Only fixture effects | **PASS within the fixture**: complete before/after file, Git and task maps equal; no task state created |
+| Fresh recovery and Codex-to-Desktop handoff | **PASS for this minimum observation**: a new Desktop task inspected actual Spec, consent, candidate, diff and existing evidence, then ran resume without `--update-state` on the same filesystem/worktree |
+| Recovery fixture effects | **PASS within the fixture**: file, Git and task maps unchanged; original packet retained |
+| Full Task independent review | **PENDING / UNVERIFIED**: next separate canonical review action preserved; no numbered report or Completion |
+| Enforced read-only controls and overall readiness | **UNKNOWN**: actual permission setting was automatic approval; observed non-change does not prove enforcement or independent review |
+| New Desktop behavior verification | **NOT_RUN**: no source or tests executed by the Desktop reviewer/recovery session; three Codex preparation assertions were prior evidence only |
+
+The minimum observation and [procedure](hosts/qoder-desktop.md) do not establish
+general compatibility. Local observation notes are transcriptions of real UI
+output; original screenshots/full tool returns remain in the retained sessions.
+Terminal accessibility output truncation is disclosed. Machine file maps and
+Codex preparation logs are retained locally; raw evidence is not published here.
+Effects of Qoder hooks outside the bounded fixtures were not independently
+audited, so there is no whole-computer no-write claim. A new task and read-only
+instruction alone do not establish enforced independence. Qoder CLI/IDE remain
+outside required V0 scope; historical NOT_RUN records are preserved.
+
+## G2 protected Git inspection repair
+
+[PR #2](https://github.com/zhangjian0410/mini-sdd-quality-kit/pull/2) fixed legal
+filter driver names containing `=`. The former inline configuration overrides
+could fail to disable clean/process programs during inspection, even with helper
+exit 0. The shared inspector now preserves complete dynamic keys with
+`--config-env`; workspace and fixed comparisons use that repair.
+
+Retained acceptance for implementation `57489f3175a61a1c043a4c1802261975ca808f52`:
+four real CLI regressions failed before the repair and passed afterward, covering
+clean and protocol-valid process filters, empty/selected ownership, execution
+markers, unchanged repository/Git snapshots and raw byte/patch identities.
+Workspace and fixed scope suites each passed 10 tests. The final deterministic
+run discovered **81 tests: 67 passed, 14 live skipped**, exit 0; syntax validation
+passed for 23 Python files. No typechecker is configured. The original feedback
+command also passed without filter side effects. These are retained G2 results,
+not tests rerun during Alpha.2 documentation preparation.
+
+Local independent development review found no material blocker; a nonblocking
+duplicated-test-assertion suggestion remains deferred. Acceptance AC1–AC5 passed.
+The [merge receipt](https://github.com/zhangjian0410/mini-sdd-quality-kit/issues/1#issuecomment-6716977609)
+binds merge `a9c0f986df93511c10d97ab2195670f4708ab905` to the same reviewed/tested
+file tree. G2 did not run live host checks; G3 later supplied only the bounded
+Desktop observations above. Historical Codex observations are not promoted to
+new Alpha.2 full live acceptance.
 
 ## Standalone deterministic source check
 
@@ -53,20 +101,24 @@ Live model cases are opt-in and remain skipped without `REVIEW_DIFF_LIVE=1`.
 They can consume authenticated model usage; deterministic checks do not establish
 actual Skill behavior, Desktop compatibility or enforced reviewer independence.
 The original final development run discovered 77 tests: 63 passed and 14 live
-cases skipped. The public packaging run is recorded after execution in this
-section; private command logs stay outside the public tree.
+cases skipped. The historical public packaging run is recorded below; the later
+G2 81/67/14 result is recorded separately above. Private command logs stay outside
+the public tree.
 
 Public packaging check on 2026-11-08: **77 discovered, 63 passed, 14 skipped**,
-exit status 0, Python 3.11.15. `REVIEW_DIFF_LIVE` was unset. All 42 core/test files
-matched the final development source bytes. All 5 bundled license-file Git blob
+exit status 0, Python 3.11.15. `REVIEW_DIFF_LIVE` was unset. At that packaging
+candidate, all 42 core/test files matched the final development source bytes.
+All 5 bundled license-file Git blob
 identities matched their pinned source record; local Markdown file links resolved.
 The targeted public-tree privacy scan reported no findings. This is a relocated
 source check, not a new live model or Desktop test.
 
 ## Source and evidence boundaries
 
-[SNAPSHOT.json](../SNAPSHOT.json) names the development source revision.
-All 42 core Skill/test files, including third-party notices, are unchanged.
+[SNAPSHOT.json](../SNAPSHOT.json) retains the historical development source
+revision and subsequent public changes. G2 changed a core helper and tests;
+current core/test files are no longer byte-identical to the original snapshot.
+Third-party notices and pinned source/license provenance are unchanged.
 Public docs remove private archive links rather than exposing historical logs.
 [SOURCES](../SOURCES.md) retains immutable upstream source/license identities.
 No unpublished private receipt is required to follow the user instructions or

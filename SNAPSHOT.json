@@ -3,18 +3,29 @@
   "source_commit": "2f09ce38993548a5030d55b58603c84bd2a0d282",
   "target_repository": "https://github.com/zhangjian0410/mini-sdd-quality-kit",
   "license": "MIT",
-  "release_version": "0.1.0-alpha.1",
+  "release_version": "0.1.0-alpha.2",
   "release_tag": null,
-  "core_and_test_files_unchanged": true,
+  "core_and_test_files_unchanged": false,
+  "public_validation_baseline_commit": "a9c0f986df93511c10d97ab2195670f4708ab905",
+  "post_snapshot_changes": [
+    {
+      "commit": "57489f3175a61a1c043a4c1802261975ca808f52",
+      "summary": "G2: preserve filter keys containing equals during protected inspection; core helper repair and four CLI regressions"
+    },
+    {
+      "commit": "87e78440bc6ee2369dd8d5db81534874ace1da00",
+      "summary": "Kit development instructions and domain documentation; not installed into business repositories"
+    }
+  ],
   "history": "Independent public repository; original development Git history is not included",
   "platform": "macOS observations only",
   "codex": "Strict manual entry observed; native installation/subagent policy unverified",
-  "qoder_desktop": "UNKNOWN/NOT_RUN; no compatibility PASS",
+  "qoder_desktop": "G3 bounded recovery/effects PASS; report precision FAIL; enforced controls/readiness UNKNOWN; independent review PENDING/UNVERIFIED; behavior verification NOT_RUN; no general compatibility PASS",
   "excluded_hosts": [
     "Qoder CLI",
     "Qoder IDE"
   ],
-  "planned_release_tag": "v0.1.0-alpha.1",
+  "planned_release_tag": "v0.1.0-alpha.2",
   "planned_prerelease": true,
-  "release_status": "awaiting-final-approval"
+  "release_status": "prepared-local-only; publication not authorized"
 }

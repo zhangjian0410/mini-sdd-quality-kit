@@ -1,9 +1,21 @@
-# Qoder Desktop: validation pending
+# Qoder Desktop: bounded observations and limitations
 
-V0 targets Codex and Qoder Desktop. Actual Desktop Skill behavior remains
-**UNKNOWN / NOT_RUN**. Development observed app metadata version 0.5.6, but
-normal host application access was refused before any model review or recovery.
-This is not proof of compatibility. Qoder CLI and Qoder IDE are outside required
+V0 targets Codex and Qoder Desktop. On 2026-11-08, G3 completed both minimum
+Desktop observations on public candidate `a9c0f986df93511c10d97ab2195670f4708ab905`:
+explicit canonical Review Only and fresh inspection-only recovery of a
+Codex-produced Full Task on the same filesystem/worktree.
+
+The real line-4 defect was found, but an extra finding described an unperformed
+hypothetical repair: report precision is **FAIL**. Bounded recovery and unchanged
+fixture/Git/task effects are **PASS**. Enforced read-only controls and overall
+readiness remain **UNKNOWN**; the actual permission setting was automatic
+approval. Independent review stays **PENDING / UNVERIFIED**; new Desktop behavior
+verification is **NOT_RUN**. These observations do not grant general Desktop
+compatibility or complete V0 acceptance. See [validation](../VALIDATION.md).
+
+Earlier development recorded version 0.5.6 metadata and refused application access;
+that remains historical evidence, not the G3 result. The app version was not
+independently rechecked for G3. Qoder CLI and Qoder IDE are outside required
 V0 acceptance; their historical NOT_RUN records remain unchanged in the private
 archive. No additional CLI/IDE installation or validation is required.
 
@@ -19,7 +31,7 @@ Use a fresh Desktop context and a disposable authorized fixture. Full Task helpe
 need user-provided Python 3.11+ and Git supporting `--no-lazy-fetch`. Nothing in
 this guide installs dependencies or changes global host settings.
 
-## Minimum future validation
+## Minimum observation procedure
 
 An authorized operator should preserve prompts, actual results, control evidence
 and before/after fixture, Git and task file maps outside the reviewed fixture.
@@ -53,7 +65,11 @@ Review Only inspects existing evidence and executes no source or tests.
 A new chat or read-only instruction alone does not prove enforced independence.
 If controls or provenance cannot be verified, retain the reusable packet and
 PENDING. Record NOT_RUN or UNKNOWN for unavailable observations. Neither this
-procedure nor Codex observations grant Desktop PASS.
+procedure nor Codex observations grant general Desktop PASS. The G3 run followed
+this minimum scope; it did not rerun the complete host matrix or perform the
+separate pending review. Local observer notes are UI transcriptions; terminal
+accessibility output truncation and unaudited hook effects outside fixtures are
+disclosed in the validation summary.
 
 ## Upgrade and removal
 

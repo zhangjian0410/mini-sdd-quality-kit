@@ -8,9 +8,11 @@ Keep both complete sibling folders, references, helpers and license notices.
 
 The first-batch V0 runtime hosts are **Codex and Qoder Desktop**, following the
 PO scope correction of 2026-11-08. The initial observed platform is macOS.
-Codex's strict manual entry and fresh-session recovery were observed; Desktop's
-minimal real smoke is currently blocked by host application-access approval and
-remains **UNKNOWN / NOT_RUN**. Windows/Linux are unverified. Qoder CLI and Qoder
+Codex's strict manual entry and fresh-session recovery were observed. Desktop's
+two minimum Smokes ran: bounded recovery and unchanged fixture effects **PASS**,
+Review Only report precision **FAIL**, enforced controls and overall readiness
+**UNKNOWN**, and Full Task independent review **PENDING / UNVERIFIED**.
+Desktop behavior verification was **NOT_RUN**. Windows/Linux are unverified. Qoder CLI and Qoder
 IDE are outside required V0 acceptance; their historical records stay unchanged.
 The [delivery evidence](docs/DELIVERY.md) separates package delivery from actual
 runtime validation. The kit helps find defects without guaranteeing correctness.
@@ -18,10 +20,13 @@ runtime validation. The kit helps find defects without guaranteeing correctness.
 ## Obtain the source
 
 Public source repository: <https://github.com/zhangjian0410/mini-sdd-quality-kit>.
-The source is publicly available on `main`. This checkout prepares the first
-pre-release, **v0.1.0-alpha.1**; its Tag and GitHub Release await final approval
-and have not been created. See [SNAPSHOT.json](SNAPSHOT.json) for the unchanged
-development source revision and the planned release metadata.
+The source is publicly available on `main`.
+[v0.1.0-alpha.1](https://github.com/zhangjian0410/mini-sdd-quality-kit/releases/tag/v0.1.0-alpha.1)
+is already published. This checkout prepares **v0.1.0-alpha.2** locally; its Tag
+and GitHub Release have not been created. The [release notes](docs/releases/v0.1.0-alpha.2.md)
+describe the G2 Git-filter repair, retained checks and G3 limitations. See
+[SNAPSHOT.json](SNAPSHOT.json) for the historical development source and subsequent
+public changes. This is a conditional Alpha pre-release, not complete V0 acceptance.
 Download the complete source archive or clone the repository.
 Keep the root `SOURCES.md`, both complete sibling Skill folders, their references,
 helpers and license notices together. No personal bootstrap or framework is needed.
@@ -131,7 +136,7 @@ evidence and latest report/provenance before trusting the index. Default recover
 is inspection; state updates need explicit authorization. Drift requires current
 checks and appropriate re-review. Preserve PENDING/UNKNOWN/BLOCKED and next actions.
 Cross-host recovery requires the **same local filesystem and worktree**; the kit
-provides no hidden upload or cross-device sync. Its remaining smoke is in
+provides no hidden upload or cross-device sync. Observed scope and remaining gaps are in
 [delivery evidence](docs/DELIVERY.md).
 
 Keep the old kit and local edits when upgrading. Compare versions, choose the new
