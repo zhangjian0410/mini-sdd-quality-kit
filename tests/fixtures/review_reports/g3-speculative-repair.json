@@ -1,0 +1,23 @@
+{
+  "provenance": {
+    "description": "Sanitized, minimized derivative of the retained G3 Review Only report transcription, 2026-11-08. Not a native export or a new runtime observation. Retains finding identity, location, evidence and conditional claim; scope and host data are omitted.",
+    "source_sha256": "dba5588e44a4f74631a9375d91322b368b8871eacdfea6fd788b956b926ee814"
+  },
+  "report": {
+    "code_quality": {"status": "FINDINGS"},
+    "findings": [
+      {
+        "id": "CQ-1",
+        "line": 4,
+        "actual": "return sum(prices) / len(prices - 1) evaluates list minus int, raising TypeError; no non-empty call reaches division.",
+        "evidence": "Line 4; sum(prices) succeeds, then len(prices - 1) fails before len is applied."
+      },
+      {
+        "id": "CQ-2",
+        "line": 4,
+        "actual": "Under that repair, singleton divides by zero and [10,20] yields 30 instead of 15. No authoritative Spec establishes sample-style n-1 rationale.",
+        "evidence": "Misplaced -1 suggests two intents; neither supported by Spec and n-1 variant mathematically wrong for mean_price."
+      }
+    ]
+  }
+}

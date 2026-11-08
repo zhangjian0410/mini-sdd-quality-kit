@@ -56,6 +56,9 @@ expanding the change scope or treating those conventions as new permissions.
 - Favor high-confidence findings supported by selected code and a concrete
   failure path. Separate observed code from inferred runtime consequences.
   Identify assumptions rather than claiming a reproduction that did not occur.
+  Keep each finding tied to a failure in the current selected candidate. Concerns
+  that exist only after a proposed repair belong in optional repair advice,
+  outside the findings list, finding count and severity labels.
 - For test adequacy, consider behavior, important error paths and boundaries,
   meaningful regression protection, and cost/benefit. The absence of an automated
   suite alone is not a defect. Inspect supplied pre-existing evidence; do not
