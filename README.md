@@ -17,10 +17,12 @@ runtime validation. The kit helps find defects without guaranteeing correctness.
 
 ## Obtain the source
 
-Target public repository: <https://github.com/zhangjian0410/mini-sdd-quality-kit>.
-This is an unpublished source candidate, not a tagged release. See
-[SNAPSHOT.json](SNAPSHOT.json) for the development source revision and status.
-Once published, download the complete source archive or clone that repository.
+Public source repository: <https://github.com/zhangjian0410/mini-sdd-quality-kit>.
+The source is publicly available on `main`. This checkout prepares the first
+pre-release, **v0.1.0-alpha.1**; its Tag and GitHub Release await final approval
+and have not been created. See [SNAPSHOT.json](SNAPSHOT.json) for the unchanged
+development source revision and the planned release metadata.
+Download the complete source archive or clone the repository.
 Keep the root `SOURCES.md`, both complete sibling Skill folders, their references,
 helpers and license notices together. No personal bootstrap or framework is needed.
 

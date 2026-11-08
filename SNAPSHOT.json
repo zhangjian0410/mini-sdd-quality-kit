@@ -1,9 +1,9 @@
 {
-  "kind": "unpublished-public-source-candidate",
+  "kind": "public-source-snapshot",
   "source_commit": "2f09ce38993548a5030d55b58603c84bd2a0d282",
   "target_repository": "https://github.com/zhangjian0410/mini-sdd-quality-kit",
   "license": "MIT",
-  "release_version": null,
+  "release_version": "0.1.0-alpha.1",
   "release_tag": null,
   "core_and_test_files_unchanged": true,
   "history": "Independent public repository; original development Git history is not included",
@@ -13,5 +13,8 @@
   "excluded_hosts": [
     "Qoder CLI",
     "Qoder IDE"
-  ]
+  ],
+  "planned_release_tag": "v0.1.0-alpha.1",
+  "planned_prerelease": true,
+  "release_status": "awaiting-final-approval"
 }

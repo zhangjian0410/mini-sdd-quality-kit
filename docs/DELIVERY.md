@@ -13,9 +13,13 @@ archive dependencies. The new Git repository has independent initial history;
 original development commits, task records, host captures, personal configuration
 and authentication are excluded.
 
-The current [snapshot identity](../SNAPSHOT.json) is an unpublished candidate,
-with no numeric release version or tag assigned. Package preparation does not
-claim a GitHub publication, a stable release or fully validated V0 runtime support.
+The source snapshot is public on the repository's `main` branch. The current
+[snapshot identity](../SNAPSHOT.json) prepares **v0.1.0-alpha.1** as the first
+GitHub Pre-release, pending final approval. Its version is `0.1.0-alpha.1`, with
+planned Tag `v0.1.0-alpha.1`; no Tag or GitHub Release has been created.
+The development source revision above remains unchanged. Public source availability
+and alpha preparation do not claim a stable release or fully validated V0 runtime
+support. Runtime observations and limitations below retain their existing verdicts.
 
 ## Runtime status
 
