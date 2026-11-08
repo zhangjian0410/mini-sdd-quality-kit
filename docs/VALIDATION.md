@@ -1,7 +1,8 @@
 # Validation status and limits
 
 This is a public summary of retained development checks and host observations,
-including G2 repair acceptance and G3 Desktop Smokes. Raw host captures, task records and private coordinator
+including G2/G5 repair acceptance, G3 Desktop Smokes and the G6 single precision
+recheck. Raw host captures, task records and private coordinator
 logs are excluded. The product contract describes intended behavior; it does not
 turn an unobserved capability into PASS.
 
@@ -62,6 +63,52 @@ Effects of Qoder hooks outside the bounded fixtures were not independently
 audited, so there is no whole-computer no-write claim. A new task and read-only
 instruction alone do not establish enforced independence. Qoder CLI/IDE remain
 outside required V0 scope; historical NOT_RUN records are preserved.
+
+## G5 grounding hardening and G6 single precision recheck
+
+[PR #4](https://github.com/zhangjian0410/mini-sdd-quality-kit/pull/4), associated
+with [Issue #3](https://github.com/zhangjian0410/mini-sdd-quality-kit/issues/3),
+clarifies the existing grounding rule: findings concern failures in the current
+selected candidate. Risks exclusive to an unperformed repair belong in optional
+advice, outside findings, their count and severity. The acceptance change is
+specific to the four-line known-defect fixture, not a production report filter.
+
+G5 implementation `490d6084e5fa6e2cd3a630add1427fb61b3ef262` was accepted locally.
+The baseline oracle accepted true CQ-1 plus speculative CQ-2; the new regression
+initially failed and then passed after the oracle was strengthened. Four
+deterministic report controls passed. The full run discovered **85 tests:
+71 passed, 14 opt-in live tests skipped**, exit 0; syntax compilation passed for
+23 Python files and `git diff --check` passed. No typechecker is configured.
+Separate fresh Standards, Spec and cross_checker development contexts found no
+material issues; the committed bytes matched their reviewed candidate.
+
+On 2026-11-08, G6 ran **one** fresh Qoder Desktop Review Only task on that exact
+implementation, with the byte-identical G3 prompt, the same original fixture and
+the same visible model setting, DeepSeek-V4.1-Flash-1017 (high). Actual file-read
+audit named the canonical Skill and report-contract paths.
+
+| G6 observation | Result and boundary |
+|---|---|
+| Real defect | **PASS for this observation**: one High finding for `len(prices - 1)` at pricing.py:4 |
+| CQ-2 precision | **PASS for this observation**: no speculative second finding; related conditional risk remained optional advice explicitly outside findings/count/severity |
+| Bounded effects | **PASS**: complete fixture/Git/task maps and snapshots of 209 product/Git files unchanged; no task state created in the fixture |
+| Status labels | Spec Compliance **N/A**, reviewed-code behavior verification **NOT_RUN**, independence **UNVERIFIED** |
+| Enforced read-only controls | **UNKNOWN**: actual permission setting remained automatic approval |
+| Repeatability and general Desktop readiness | **UNKNOWN**: one observation, no pinned seed or backend attestation; no general compatibility PASS |
+
+The original G3 precision **FAIL remains historical evidence**. G6 neither
+reran the corrected pair nor expanded the host matrix, Full Task recovery or
+pending independent review. Its optional advice did not disappear from all text.
+No reviewed source or tests ran in the Desktop task. App version and backend
+identity beyond the UI label were not independently checked; hook effects
+outside bounded snapshots remain unaudited. No whole-computer no-write claim
+is made.
+
+Raw G6 UI/tool records, screenshots, prompt hashes and machine snapshots remain
+private. The shipped JSON is explicitly a minimized G3 transcription derivative,
+not a G6 runtime export. Later Alpha.3 documentation and publication work reuses
+G5/G6 evidence without rerunning tests or promoting those observations to a new
+full live acceptance on a later documentation commit.
 
 ## G2 protected Git inspection repair
 

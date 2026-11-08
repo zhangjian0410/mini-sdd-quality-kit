@@ -34,6 +34,39 @@ def snapshot(root: Path) -> dict[str, dict[str, str | int]]:
     return result
 
 
+def assert_known_defect_findings(case: unittest.TestCase, report: dict) -> None:
+    """Acceptance oracle for the four-line logic_bug fixture, not a report filter."""
+    case.assertEqual(report["code_quality"]["status"], "FINDINGS")
+    case.assertEqual(len(report["findings"]), 1, "Report the current known defect only")
+    grounded = [finding for finding in report["findings"] if finding["line"] == 4]
+    case.assertTrue(grounded, "The known failing expression must be identified at line 4")
+    case.assertTrue(any("prices - 1" in finding["evidence"] for finding in grounded))
+
+
+class KnownDefectAcceptanceTests(unittest.TestCase):
+    def setUp(self):
+        fixture = ROOT / "tests/fixtures/review_reports/g3-speculative-repair.json"
+        self.report = json.loads(fixture.read_text(encoding="utf-8"))["report"]
+
+    def test_accepts_the_true_finding_alone(self):
+        self.report["findings"] = self.report["findings"][:1]
+        assert_known_defect_findings(self, self.report)
+
+    def test_rejects_g3_true_finding_plus_speculative_repair(self):
+        with self.assertRaises(AssertionError):
+            assert_known_defect_findings(self, self.report)
+
+    def test_rejects_missing_true_finding(self):
+        self.report["findings"] = []
+        with self.assertRaises(AssertionError):
+            assert_known_defect_findings(self, self.report)
+
+    def test_rejects_ungrounded_finding(self):
+        self.report["findings"] = self.report["findings"][1:]
+        with self.assertRaises(AssertionError):
+            assert_known_defect_findings(self, self.report)
+
+
 @unittest.skipUnless(os.environ.get("REVIEW_DIFF_LIVE") == "1", "real Codex run NOT_RUN; set REVIEW_DIFF_LIVE=1")
 class ReviewDiffEntryTests(unittest.TestCase):
     def review(self, variant: str) -> dict:
@@ -107,10 +140,7 @@ class ReviewDiffEntryTests(unittest.TestCase):
 
     def test_known_logic_defect_is_grounded_in_the_selected_file(self):
         report = self.review("logic_bug")
-        self.assertEqual(report["code_quality"]["status"], "FINDINGS")
-        grounded = [finding for finding in report["findings"] if finding["line"] == 4]
-        self.assertTrue(grounded, "The known failing expression must be identified at line 4")
-        self.assertTrue(any("prices - 1" in finding["evidence"] for finding in grounded))
+        assert_known_defect_findings(self, report)
 
     def test_corrected_counterpart_does_not_repeat_the_removed_defect(self):
         report = self.review("corrected")

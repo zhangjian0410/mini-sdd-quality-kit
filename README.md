@@ -10,7 +10,9 @@ The first-batch V0 runtime hosts are **Codex and Qoder Desktop**, following the
 PO scope correction of 2026-11-08. The initial observed platform is macOS.
 Codex's strict manual entry and fresh-session recovery were observed. Desktop's
 two minimum Smokes ran: bounded recovery and unchanged fixture effects **PASS**,
-Review Only report precision **FAIL**, enforced controls and overall readiness
+G3 Review Only report precision **FAIL**. After the G5 grounding repair,
+G6's single precision recheck **PASS** on `490d608`: one real finding, with the
+hypothetical repair risk kept outside findings. Enforced controls and overall readiness
 **UNKNOWN**, and Full Task independent review **PENDING / UNVERIFIED**.
 Desktop behavior verification was **NOT_RUN**. Windows/Linux are unverified. Qoder CLI and Qoder
 IDE are outside required V0 acceptance; their historical records stay unchanged.
@@ -30,6 +32,10 @@ The [release notes](docs/releases/v0.1.0-alpha.2.md)
 describe the G2 Git-filter repair, retained checks and G3 limitations. See
 [SNAPSHOT.json](SNAPSHOT.json) for the historical development source and subsequent
 public changes. This is a conditional Alpha pre-release, not complete V0 acceptance.
+The [Alpha.3 notes](docs/releases/v0.1.0-alpha.3.md) cover the subsequent G5
+rule/acceptance hardening and G6 single-run observation; see
+[validation](docs/VALIDATION.md#g5-grounding-hardening-and-g6-single-precision-recheck)
+for their limits.
 Download the complete source archive or clone the repository.
 Keep the root `SOURCES.md`, both complete sibling Skill folders, their references,
 helpers and license notices together. No personal bootstrap or framework is needed.
