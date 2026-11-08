@@ -4,7 +4,10 @@
   "target_repository": "https://github.com/zhangjian0410/mini-sdd-quality-kit",
   "license": "MIT",
   "release_version": "0.1.0-alpha.2",
-  "release_tag": null,
+  "release_tag": "v0.1.0-alpha.2",
+  "release_commit": "abf120f58a8ae8ccb844674410c162a0e7e4c64d",
+  "release_published_at": "2026-11-08T04:43:26Z",
+  "release_url": "https://github.com/zhangjian0410/mini-sdd-quality-kit/releases/tag/v0.1.0-alpha.2",
   "core_and_test_files_unchanged": false,
   "public_validation_baseline_commit": "a9c0f986df93511c10d97ab2195670f4708ab905",
   "post_snapshot_changes": [
@@ -27,5 +30,5 @@
   ],
   "planned_release_tag": "v0.1.0-alpha.2",
   "planned_prerelease": true,
-  "release_status": "prepared-local-only; publication not authorized"
+  "release_status": "published-prerelease"
 }

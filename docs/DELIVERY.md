@@ -19,11 +19,13 @@ The source snapshot is public on the repository's `main` branch.
 [v0.1.0-alpha.1](https://github.com/zhangjian0410/mini-sdd-quality-kit/releases/tag/v0.1.0-alpha.1)
 was published on 2026-11-08 at 01:59:01 UTC, targeting
 `4f6141f7c23a299811ef0fd11809301b8b67936d`.
-The current [snapshot identity](../SNAPSHOT.json) prepares **v0.1.0-alpha.2**
-locally, with planned Tag `v0.1.0-alpha.2` and Pre-release status. Alpha.2 has not
-been pushed, tagged or released by this preparation. PO accepted conditional
-Alpha preparation with the disclosed limitations; publication remains a separate
-authorization. See the [prepared release notes](releases/v0.1.0-alpha.2.md).
+**v0.1.0-alpha.2** was published as a
+[GitHub Pre-release](https://github.com/zhangjian0410/mini-sdd-quality-kit/releases/tag/v0.1.0-alpha.2)
+on 2026-11-08 at 04:43:26 UTC after PO authorization. Its Tag points to
+`abf120f58a8ae8ccb844674410c162a0e7e4c64d`; post-publication documentation
+corrections on `main` do not move that Tag. The current
+[snapshot identity](../SNAPSHOT.json) records the published version and target.
+See the [release notes](releases/v0.1.0-alpha.2.md) for the accepted limitations.
 
 G2's filter repair was accepted on `57489f3175a61a1c043a4c1802261975ca808f52`
 and merged as `a9c0f986df93511c10d97ab2195670f4708ab905`. That merged candidate is

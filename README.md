@@ -22,8 +22,11 @@ runtime validation. The kit helps find defects without guaranteeing correctness.
 Public source repository: <https://github.com/zhangjian0410/mini-sdd-quality-kit>.
 The source is publicly available on `main`.
 [v0.1.0-alpha.1](https://github.com/zhangjian0410/mini-sdd-quality-kit/releases/tag/v0.1.0-alpha.1)
-is already published. This checkout prepares **v0.1.0-alpha.2** locally; its Tag
-and GitHub Release have not been created. The [release notes](docs/releases/v0.1.0-alpha.2.md)
+is already published.
+[v0.1.0-alpha.2](https://github.com/zhangjian0410/mini-sdd-quality-kit/releases/tag/v0.1.0-alpha.2)
+was published as a GitHub Pre-release on 2026-11-08 at 04:43:26 UTC, with its Tag
+pointing to `abf120f58a8ae8ccb844674410c162a0e7e4c64d`.
+The [release notes](docs/releases/v0.1.0-alpha.2.md)
 describe the G2 Git-filter repair, retained checks and G3 limitations. See
 [SNAPSHOT.json](SNAPSHOT.json) for the historical development source and subsequent
 public changes. This is a conditional Alpha pre-release, not complete V0 acceptance.
