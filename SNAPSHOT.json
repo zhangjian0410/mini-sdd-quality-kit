@@ -18,17 +18,22 @@
     {
       "commit": "87e78440bc6ee2369dd8d5db81534874ace1da00",
       "summary": "Kit development instructions and domain documentation; not installed into business repositories"
+    },
+    {
+      "commit": "490d6084e5fa6e2cd3a630add1427fb61b3ef262",
+      "summary": "G5 current-candidate grounding and fixture precision acceptance; G6 single Desktop precision/effects observation PASS, without general readiness or enforcement approval"
     }
   ],
   "history": "Independent public repository; original development Git history is not included",
   "platform": "macOS observations only",
   "codex": "Strict manual entry observed; native installation/subagent policy unverified",
-  "qoder_desktop": "G3 bounded recovery/effects PASS; report precision FAIL; enforced controls/readiness UNKNOWN; independent review PENDING/UNVERIFIED; behavior verification NOT_RUN; no general compatibility PASS",
+  "qoder_desktop": "G3 bounded recovery/effects PASS and historical report precision FAIL; G6 single precision/effects observation PASS on 490d608; enforced controls/repeatability/readiness UNKNOWN; independent review PENDING/UNVERIFIED; reviewed-code behavior verification NOT_RUN; no general compatibility PASS",
+  "precision_validation_commit": "490d6084e5fa6e2cd3a630add1427fb61b3ef262",
   "excluded_hosts": [
     "Qoder CLI",
     "Qoder IDE"
   ],
-  "planned_release_tag": "v0.1.0-alpha.2",
+  "planned_release_tag": "v0.1.0-alpha.3",
   "planned_prerelease": true,
   "release_status": "published-prerelease"
 }

@@ -34,6 +34,14 @@ and metadata; it does not rerun product tests or host Smokes. The historical
 development source above remains the provenance origin, not the current public
 release candidate. This Alpha does not claim stable or fully validated V0 support.
 
+Alpha.3 preparation adds the G5 current-candidate grounding and fixture-precision
+repair from `490d6084e5fa6e2cd3a630add1427fb61b3ef262` and records the G6 single
+Desktop precision recheck. See the [Alpha.3 notes](releases/v0.1.0-alpha.3.md)
+and [G5/G6 validation](VALIDATION.md#g5-grounding-hardening-and-g6-single-precision-recheck).
+Publication preparation changes only documentation/metadata after that code
+candidate; it reuses existing tests, independent development review and the
+single Desktop observation without a new full live acceptance.
+
 ## Runtime status
 
 | Host or capability | Observed status |
@@ -41,7 +49,7 @@ release candidate. This Alpha does not claim stable or fully validated V0 suppor
 | Codex on macOS, strict manual loading | Actual review and Full Task/recovery observations; bounded support only |
 | Codex native catalog installation and native subagent policy | NOT_RUN / unverified |
 | Qoder Desktop minimum recovery and fixture effects | Bounded **PASS**; actual manual file loading and known-defect detection observed |
-| Qoder Desktop Review Only report precision | **FAIL**: extra speculative finding about an unperformed repair |
+| Qoder Desktop Review Only report precision | G3 historical **FAIL**; G6 single observation **PASS** on `490d608`, with no repeatability or general precision claim |
 | Qoder Desktop enforced controls / overall readiness | **UNKNOWN**; no general compatibility PASS |
 | Recovered Full Task independent review | **PENDING / UNVERIFIED**; reusable packet retained, no Completion |
 | New Desktop behavior verification | **NOT_RUN**; existing Codex assertions were inspected only |

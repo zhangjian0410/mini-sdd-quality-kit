@@ -6,16 +6,28 @@ explicit canonical Review Only and fresh inspection-only recovery of a
 Codex-produced Full Task on the same filesystem/worktree.
 
 The real line-4 defect was found, but an extra finding described an unperformed
-hypothetical repair: report precision is **FAIL**. Bounded recovery and unchanged
+hypothetical repair: G3 report precision is **FAIL**. Bounded recovery and unchanged
 fixture/Git/task effects are **PASS**. Enforced read-only controls and overall
 readiness remain **UNKNOWN**; the actual permission setting was automatic
 approval. Independent review stays **PENDING / UNVERIFIED**; new Desktop behavior
 verification is **NOT_RUN**. These observations do not grant general Desktop
 compatibility or complete V0 acceptance. See [validation](../VALIDATION.md).
 
+After G5 minimally hardened the grounding rule and fixture acceptance, G6 ran
+one fresh Review Only task on `490d6084e5fa6e2cd3a630add1427fb61b3ef262` with
+the identical G3 prompt/fixture and the same model UI setting. This single
+precision observation **PASS**: one real High finding; the hypothetical repair
+risk appeared only as advice outside findings/count/severity. Fixture/Git/task
+maps and product/Git snapshots were unchanged. Automatic approval remained
+active, so enforced read-only controls remain **UNKNOWN**. Independence stays
+**UNVERIFIED**, reviewed-code behavior verification **NOT_RUN**, and general
+readiness **UNKNOWN**. G3 FAIL is preserved; no corrected-pair or Full Task
+recovery rerun occurred. Details and evidence limits are in
+[G5/G6 validation](../VALIDATION.md#g5-grounding-hardening-and-g6-single-precision-recheck).
+
 Earlier development recorded version 0.5.6 metadata and refused application access;
 that remains historical evidence, not the G3 result. The app version was not
-independently rechecked for G3. Qoder CLI and Qoder IDE are outside required
+independently rechecked for G3 or G6. Qoder CLI and Qoder IDE are outside required
 V0 acceptance; their historical NOT_RUN records remain unchanged in the private
 archive. No additional CLI/IDE installation or validation is required.
 
