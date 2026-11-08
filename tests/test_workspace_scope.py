@@ -1,7 +1,9 @@
 """Public CLI behavior against disposable Git workspaces."""
+import hashlib
 import json
 import os
 from pathlib import Path
+import shlex
 import subprocess
 import sys
 import tempfile
@@ -32,6 +34,42 @@ class WorkspaceScopeTests(unittest.TestCase):
         self.assertEqual(snapshot(self.root), before)
         self.assertEqual(result.returncode, 0 if success else 2, result.stderr)
         return json.loads(result.stdout)
+
+    def configure_filter(self, kind, driver='a=b'):
+        marker = self.root / 'filter-executed'
+        script = Path(__file__).resolve().parent / 'fixtures/git_filter.py'
+        command = shlex.join([sys.executable, '-B', str(script), kind, str(marker)])
+        self.git('config', f'filter.{driver}.{kind}', command)
+        self.git('config', f'filter.{driver}.required', 'true')
+        (self.root / '.gitattributes').write_text(f'unstaged.py filter={driver}\n')
+        (self.root / 'unstaged.py').write_text('raw worktree bytes\n')
+        # Prove the fixture is executable before measuring protected inspection.
+        filtered = self.git('hash-object', '--path=unstaged.py', 'unstaged.py')
+        raw = self.git('hash-object', '--no-filters', 'unstaged.py')
+        self.assertEqual(filtered, raw)
+        self.assertTrue(marker.is_file())
+        marker.unlink()
+        return marker
+
+    def assert_filter_disabled(self, kind):
+        marker = self.configure_filter(kind)
+        for args in ((), ('--owned', 'unstaged.py')):
+            with self.subTest(owned=bool(args)):
+                marker.unlink(missing_ok=True)
+                result = self.scope(*args)
+                self.assertFalse(marker.exists())
+                entry = next(e for e in result['files'] if e['path'] == 'unstaged.py')
+                self.assertTrue(entry['unstaged'])
+                self.assertEqual(entry['selected'], bool(args))
+                if args:
+                    self.assertEqual(entry['sha256'], hashlib.sha256(b'raw worktree bytes\n').hexdigest())
+                    self.assertIn('+raw worktree bytes', entry['unstaged_diff'])
+
+    def test_equals_named_clean_filter_is_not_executed(self):
+        self.assert_filter_disabled('clean')
+
+    def test_equals_named_process_filter_is_not_executed(self):
+        self.assert_filter_disabled('process')
 
     def test_layers_owned_untracked_and_exclusions(self):
         for name in ('staged.py', 'both.py'):

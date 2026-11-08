@@ -41,9 +41,13 @@ def inspect(root: Path, owned: list[str]) -> dict:
     if names.returncode not in (0, 1):
         raise ValueError('Cannot establish safe Git filter configuration')
     drivers = {os.fsdecode(name).rsplit('.', 1)[0] for name in names.stdout.splitlines()}
+    # Unlike -c key=value, --config-env preserves '=' inside a driver name.
+    env['REVIEW_DIFF_FILTER_DISABLED'] = ''
+    env['REVIEW_DIFF_FILTER_REQUIRED'] = 'false'
     for driver in sorted(drivers):
-        config.extend(['-c', driver + '.clean=', '-c', driver + '.process=',
-                       '-c', driver + '.required=false'])
+        config.extend([f'--config-env={driver}.clean=REVIEW_DIFF_FILTER_DISABLED',
+                       f'--config-env={driver}.process=REVIEW_DIFF_FILTER_DISABLED',
+                       f'--config-env={driver}.required=REVIEW_DIFF_FILTER_REQUIRED'])
 
     actual = Path(os.fsdecode(git('rev-parse', '--show-toplevel')).rstrip('\n')).resolve()
     if root != actual:

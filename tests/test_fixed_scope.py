@@ -1,4 +1,5 @@
 """Fixed comparison public CLI, real disposable Git histories."""
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -14,12 +15,34 @@ HELPER = Path(__file__).resolve().parents[1] / 'skills/review-diff/scripts/fixed
 class FixedScopeTests(unittest.TestCase):
     setUp = test_workspace_scope.WorkspaceScopeTests.setUp
     git = test_workspace_scope.WorkspaceScopeTests.git
+    configure_filter = test_workspace_scope.WorkspaceScopeTests.configure_filter
     def fixed(self, *args, success=True):
         before = snapshot(self.root)
         result = subprocess.run([sys.executable, '-B', str(HELPER), '--root', str(self.root), *args], capture_output=True, text=True)
         self.assertEqual(snapshot(self.root), before)
         self.assertEqual(result.returncode, 0 if success else 2, result.stderr)
         return json.loads(result.stdout)
+
+    def assert_filter_disabled(self, kind):
+        marker = self.configure_filter(kind)
+        for args in ((), ('--owned', 'unstaged.py')):
+            with self.subTest(owned=bool(args)):
+                marker.unlink(missing_ok=True)
+                result = self.fixed('--base', 'HEAD', *args)
+                self.assertFalse(marker.exists())
+                self.assertEqual(result['comparison']['files'], [])
+                entry = next(e for e in result['workspace']['files'] if e['path'] == 'unstaged.py')
+                self.assertTrue(entry['unstaged'])
+                self.assertEqual(entry['selected'], bool(args))
+                if args:
+                    self.assertEqual(entry['sha256'], hashlib.sha256(b'raw worktree bytes\n').hexdigest())
+                    self.assertIn('+raw worktree bytes', entry['unstaged_diff'])
+
+    def test_equals_named_clean_filter_is_not_executed(self):
+        self.assert_filter_disabled('clean')
+
+    def test_equals_named_process_filter_is_not_executed(self):
+        self.assert_filter_disabled('process')
 
     def test_committed_patch_excludes_dirty_and_attributes_workspace(self):
         base = self.git('rev-parse', 'HEAD').decode().strip()
