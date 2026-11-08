@@ -34,8 +34,12 @@ and metadata; it does not rerun product tests or host Smokes. The historical
 development source above remains the provenance origin, not the current public
 release candidate. This Alpha does not claim stable or fully validated V0 support.
 
-Alpha.3 preparation adds the G5 current-candidate grounding and fixture-precision
-repair from `490d6084e5fa6e2cd3a630add1427fb61b3ef262` and records the G6 single
+**v0.1.0-alpha.3** was published as a [GitHub Pre-release](https://github.com/zhangjian0410/mini-sdd-quality-kit/releases/tag/v0.1.0-alpha.3)
+on 2026-11-08 05:43:02 UTC. Its annotated Tag resolves to merge
+`1d309dcfe606e80b1fbfc43d9b9fb0e693c986bb`, whose tree equals the reviewed PR
+candidate. Publication-receipt documentation on `main` does not move that Tag.
+Alpha.3 includes the G5 current-candidate grounding and fixture-precision repair
+from `490d6084e5fa6e2cd3a630add1427fb61b3ef262` and records the G6 single
 Desktop precision recheck. See the [Alpha.3 notes](releases/v0.1.0-alpha.3.md)
 and [G5/G6 validation](VALIDATION.md#g5-grounding-hardening-and-g6-single-precision-recheck).
 Publication preparation changes only documentation/metadata after that code
