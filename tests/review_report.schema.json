@@ -1,0 +1,89 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["scope", "spec_compliance", "code_quality", "independence", "verification", "findings"],
+  "properties": {
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "root", "files", "excluded", "limitations"],
+      "properties": {
+        "kind": {"type": "string", "enum": ["explicit-files", "default-workspace", "fixed-comparison", "unsupported"]},
+        "root": {"type": "string"},
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256", "lines_reviewed"],
+            "properties": {
+              "path": {"type": "string"},
+              "sha256": {"type": "string"},
+              "lines_reviewed": {"type": "string"}
+            }
+          }
+        },
+        "excluded": {"type": "array", "items": {"type": "string"}},
+        "limitations": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "spec_compliance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reason"],
+      "properties": {
+        "status": {"type": "string", "enum": ["N/A", "UNKNOWN", "FINDINGS", "PASS"]},
+        "reason": {"type": "string"}
+      }
+    },
+    "code_quality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "summary"],
+      "properties": {
+        "status": {"type": "string", "enum": ["FINDINGS", "NO_HIGH_CONFIDENCE_FINDINGS", "LIMITED"]},
+        "summary": {"type": "string"}
+      }
+    },
+    "independence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidence"],
+      "properties": {
+        "status": {"type": "string", "enum": ["INDEPENDENT", "SELF_CHECK", "UNVERIFIED"]},
+        "evidence": {"type": "string"}
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "existing_evidence", "behavior_checks_run"],
+      "properties": {
+        "status": {"type": "string", "enum": ["NOT_RUN", "UNKNOWN"]},
+        "existing_evidence": {"type": "string"},
+        "behavior_checks_run": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "axis", "severity", "file", "line", "expected", "actual", "evidence", "impact", "remedy", "verification_status"],
+        "properties": {
+          "id": {"type": "string"},
+          "axis": {"type": "string", "enum": ["Code Quality", "Spec Compliance"]},
+          "severity": {"type": "string", "enum": ["critical", "high", "medium", "low"]},
+          "file": {"type": "string"},
+          "line": {"type": "integer"},
+          "expected": {"type": "string"},
+          "actual": {"type": "string"},
+          "evidence": {"type": "string"},
+          "impact": {"type": "string"},
+          "remedy": {"type": "string"},
+          "verification_status": {"type": "string", "enum": ["NOT_RUN", "UNKNOWN"]}
+        }
+      }
+    }
+  }
+}
